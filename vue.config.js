@@ -1,6 +1,14 @@
 // vue.config.js
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/string-caluculater/'
-    : '/'
+    ? '/string-calculator/'
+    : '/',
+  chainWebpack: config => {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title = '製糸計算ツール'
+        return args
+      })
+  }
 }

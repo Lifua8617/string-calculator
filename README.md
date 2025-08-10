@@ -1,4 +1,4 @@
-# making_time_calculator
+# string_calculator
 
 ## Project setup
 ```
