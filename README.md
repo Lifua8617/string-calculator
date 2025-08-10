@@ -24,7 +24,7 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## deploy
-# mainブランチにいるか確認
+### mainブランチにいるか確認
 ```
 git checkout main
 ```
@@ -41,7 +41,7 @@ git checkout gh-pages
 ```
 git add -f dist
 ```
-# コミット
+### コミット
 ```
 git commit -m "feat: Update to new version"
 ```
