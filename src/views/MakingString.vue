@@ -1,18 +1,18 @@
 <template>
   <div class="making-string-calculator">
-    <h1>製糸時間計算ツール</h1>
+    <h2>生産サイクル計算式</h2>
     <div class="calculator-form">
       <div class="form-group">
-        <label for="rpm">回転数:</label>
-        <input type="number" id="rpm" v-model.number="rpm" placeholder="例: 7000" autocomplete="off">
-      </div>
-      <div class="form-group">
-        <label for="count">番手 (分数可):</label>
-        <input type="text" id="count" v-model.trim="countInput" placeholder="例: 48 または 1/48" autocomplete="off">
+        <label for="count">番手:</label>
+        <input type="number" id="count" v-model.number="count" placeholder="例: 48" autocomplete="off">
       </div>
       <div class="form-group">
         <label for="twist">撚り:</label>
         <input type="number" id="twist" v-model.number="twist" placeholder="例: 570" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="rpm">回転数:</label>
+        <input type="number" id="rpm" v-model.number="rpm" placeholder="例: 7000" autocomplete="off">
       </div>
       <div class="form-group">
         <label for="hundredValue">ボビン1本あたりに巻く重量:</label>
@@ -22,6 +22,8 @@
 
     <div v-if="isValidInput" class="results">
       <h2>計算結果</h2>
+      <p class="final-answer">生産時間(分): <strong>{{ result3 }}</strong></p>
+
       <div class="result-item">
         <p>1. 
           <span style="display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center;">
@@ -33,13 +35,7 @@
           <code>
             <span style="display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center;">
               <span style="padding: 0 10px; border-bottom: 1px solid #000000;">{{ rpm }}</span>
-                <span style="padding: 0 10px;">
-                  <span v-if="countIsFraction" style="display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center;">
-                    <span style="padding: 0 10px; border-bottom: 1px solid #000000;">{{ countNumerator }}</span>
-                    <span style="padding: 0 10px;">{{ countDenominator }}</span>
-                  </span>
-                  <span v-else>{{ countInput }}</span>
-                  &times; {{ twist }} </span>
+                <span style="padding: 0 10px;">{{ count }} &times; {{ twist }} </span>
               </span> &times; 60 =
             <strong>{{ result1 }}</strong>
           </code>
@@ -65,8 +61,6 @@
         </p>
         
       </div>
-      <hr>
-      <p class="final-answer">最終的に求められる時間(分): <strong>{{ result3 }}</strong></p>
     </div>
     <div v-else class="prompt">
       <p>回転数、番手、撚りを正しく入力してください。</p>
@@ -80,39 +74,18 @@ export default {
   data() {
     return {
       rpm: null,
-      countInput: '', // Start with empty or a default
+      count: null,
       twist: null,
       hundredValue: 100,
     };
   },
   computed: {
-    parsedCount() {
-      const input = this.countInput;
-      if (!input) return 0;
-      if (typeof input === 'number') return input;
-      if (typeof input === 'string') {
-        if (input.includes('/')) {
-          const parts = input.split('/');
-          if (parts.length === 2) {
-            const numerator = parseFloat(parts[0]);
-            const denominator = parseFloat(parts[1]);
-            if (!isNaN(numerator) && !isNaN(denominator) && denominator !== 0) {
-              return numerator / denominator;
-            }
-          }
-        } else {
-          const val = parseFloat(input);
-          if (!isNaN(val)) return val;
-        }
-      }
-      return 0; // Invalid format
-    },
     isValidInput() {
-      return this.rpm > 0 && this.parsedCount > 0 && this.twist > 0 && this.hundredValue > 0;
+      return this.rpm > 0 && this.count > 0 && this.twist > 0 && this.hundredValue > 0;
     },
     result1() {
       if (!this.isValidInput) return 0;
-      const val = (this.rpm / (this.parsedCount * this.twist)) * 60;
+      const val = (this.rpm / (this.count * this.twist)) * 60;
       return Math.ceil(val * 10) / 10;
     },
     result2() {
@@ -124,23 +97,6 @@ export default {
       if (!this.isValidInput) return 0;
       const val = this.result2 * 60;
       return Math.ceil(val * 10) / 10;
-    },
-    countIsFraction() {
-      if (!this.countInput || typeof this.countInput !== 'string') return false;
-      const parts = this.countInput.split('/');
-      return parts.length === 2 && !isNaN(parseFloat(parts[0])) && !isNaN(parseFloat(parts[1])) && parseFloat(parts[1]) !== 0;
-    },
-    countNumerator() {
-      if (this.countIsFraction) {
-        return this.countInput.split('/')[0];
-      }
-      return this.countInput;
-    },
-    countDenominator() {
-      if (this.countIsFraction) {
-        return this.countInput.split('/')[1];
-      }
-      return null;
     },
   },
 };
