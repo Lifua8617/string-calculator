@@ -1,6 +1,6 @@
 // vue.config.js
 module.exports = {
-  publicPath: '/string_calculator/',
+  publicPath: './',
   chainWebpack: config => {
     config
       .plugin('html')
