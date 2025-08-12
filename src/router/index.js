@@ -21,7 +21,7 @@ const routes = [
   },
   {
     path: '/making-string',
-    name: 'making-string',
+    name: 'makingString',
     component: MakingString
   }
 ]
