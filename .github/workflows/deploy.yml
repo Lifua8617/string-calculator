@@ -7,12 +7,18 @@ on:
     branches:
       - main
 
+# ここに権限設定を追加します
+permissions:
+  contents: write # リポジトリの内容を書き込む権限
+  pages: write # GitHub Pagesにデプロイする権限
+  id-token: write # OpenID Connectトークンを取得する権限
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: npm install
@@ -21,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4 
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
