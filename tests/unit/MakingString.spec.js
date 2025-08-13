@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import MakingString from './MakingString.vue'
+import MakingString from '@/views/MakingString.vue'
 
 describe('MakingString', () => {
   it('shows prompt message initially', () => {

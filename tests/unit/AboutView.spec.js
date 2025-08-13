@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import AboutView from './AboutView.vue'
+import AboutView from '@/views/AboutView.vue'
 
 describe('AboutView', () => {
   it('renders an about page title', () => {
