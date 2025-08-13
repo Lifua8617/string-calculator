@@ -1,6 +1,6 @@
 <template>
   <div class="making-string-calculator">
-    <h2 class="form-title">生産サイクル計算式</h2>
+    <h2 class="form-title">生産サイクル計算式１</h2>
 
     <div class="calculator-form">
       <div class="form-group">
