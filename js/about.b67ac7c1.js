@@ -1,2 +1,2 @@
 "use strict";(self["webpackChunkstring_calculator"]=self["webpackChunkstring_calculator"]||[]).push([[594],{91:function(n,u,t){t.r(u),t.d(u,{default:function(){return i}});var a=t(641);const r={class:"about"};function c(n,u){return(0,a.uX)(),(0,a.CE)("div",r,u[0]||(u[0]=[(0,a.Lk)("h1",null,"This is an about page",-1),(0,a.Lk)("p",null,"糸の生産時間のツールを作りました。",-1)]))}var s=t(262);const l={},e=(0,s.A)(l,[["render",c]]);var i=e}}]);
-//# sourceMappingURL=about.deda77d7.js.map
+//# sourceMappingURL=about.b67ac7c1.js.map
