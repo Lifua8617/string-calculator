@@ -2,15 +2,6 @@
   <div class="making-string-calculator">
     <h2 class="form-title">生産サイクル計算式</h2>
 
-    <div class="result-container">
-      <div v-if="isValidInput" class="final-answer-wrapper">
-        <p class="final-answer">生産時間(分): <strong>{{ result3 }}</strong></p>
-      </div>
-      <div v-else class="prompt">
-        <p>回転数、番手、撚りを入力してください。</p>
-      </div>
-    </div>
-
     <div class="calculator-form">
       <div class="form-group">
         <label for="count">番手:</label>
@@ -30,8 +21,17 @@
       </div>
     </div>
 
+    <div class="result-container">
+      <div v-if="isValidInput" class="final-answer-wrapper">
+        <p class="final-answer">生産時間(分): <strong>{{ result3 }}</strong></p>
+      </div>
+      <div v-else class="prompt">
+        <p>回転数、番手、撚りを入力してください。</p>
+      </div>
+    </div>
+
     <div v-if="isValidInput" class="results">
-      <h2>計算結果</h2>
+      <h2>計算手順</h2>
 
       <div class="result-item">
         <p>1. 
@@ -128,6 +128,7 @@ h2.form-title {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
