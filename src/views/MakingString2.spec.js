@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import MakingString from './MakingString.vue'
+import MakingString from './MakingString2.vue'
 
-describe('MakingString', () => {
+describe('MakingString2', () => {
   it('shows prompt message initially', () => {
     const wrapper = mount(MakingString)
     expect(wrapper.text()).toContain('回転数、番手、撚りを入力してください。')

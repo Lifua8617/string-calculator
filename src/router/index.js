@@ -18,8 +18,13 @@ const routes = [
   },
   {
     path: '/making-string',
-    name: 'makingString',
-    component: MakingString
+    name: 'making-string',
+    component: () => import('../views/MakingString.vue')
+  },
+  {
+    path: '/making-string-2',
+    name: 'making-string-2',
+    component: () => import('../views/MakingString2.vue')
   }
 ]
 

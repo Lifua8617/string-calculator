@@ -8,7 +8,8 @@
     <nav class="nav-links" :class="{ 'is-active': menuOpen }">
       <router-link to="/" @click="closeMenu">Home</router-link>
       <router-link to="/about" @click="closeMenu">About</router-link>
-      <router-link to="/making-string" @click="closeMenu">時間計算</router-link>
+      <router-link to="/making-string" @click="closeMenu">生産サイクル計算式</router-link>
+      <router-link to="/making-string-2" @click="closeMenu">生産サイクル計算式２</router-link>
     </nav>
   </header>
 </template>
@@ -76,13 +77,16 @@ header {
 
 .nav-links {
   display: flex;
+  align-items: center; /* Vertically center the links */
 }
 
 .nav-links a {
   font-weight: bold;
   color: #2c3e50;
   text-decoration: none;
-  padding: 0 15px;
+  padding: 1rem 15px; /* Adjust padding to ensure consistent height */
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a.router-link-exact-active {
@@ -137,6 +141,7 @@ header {
     padding: 1rem 0;
     width: 100%;
     text-align: center;
+    justify-content: center; /* Add this to center text within the flex container */
   }
 
   .hamburger {
