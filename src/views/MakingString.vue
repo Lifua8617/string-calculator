@@ -1,6 +1,16 @@
 <template>
   <div class="making-string-calculator">
-    <h2>生産サイクル計算式</h2>
+    <h2 class="form-title">生産サイクル計算式</h2>
+
+    <div class="result-container">
+      <div v-if="isValidInput" class="final-answer-wrapper">
+        <p class="final-answer">生産時間(分): <strong>{{ result3 }}</strong></p>
+      </div>
+      <div v-else class="prompt">
+        <p>回転数、番手、撚りを入力してください。</p>
+      </div>
+    </div>
+
     <div class="calculator-form">
       <div class="form-group">
         <label for="count">番手:</label>
@@ -15,14 +25,13 @@
         <input type="number" id="rpm" v-model.number="rpm" placeholder="例: 7000" autocomplete="off">
       </div>
       <div class="form-group">
-        <label for="hundredValue">ボビン1本あたりに巻く重量:</label>
+        <label for="hundredValue">巻き重量:</label>
         <input type="number" id="hundredValue" v-model.number="hundredValue" placeholder="例: 100" autocomplete="off">
       </div>
     </div>
 
     <div v-if="isValidInput" class="results">
       <h2>計算結果</h2>
-      <p class="final-answer">生産時間(分): <strong>{{ result3 }}</strong></p>
 
       <div class="result-item">
         <p>1. 
@@ -61,9 +70,6 @@
         </p>
         
       </div>
-    </div>
-    <div v-else class="prompt">
-      <p>回転数、番手、撚りを正しく入力してください。</p>
     </div>
   </div>
 </template>
@@ -105,17 +111,30 @@ export default {
 <style scoped>
 .making-string-calculator {
   max-width: 500px;
-  margin: 2rem auto;
-  padding: 2rem;
+  margin: 1rem auto;
+  padding: 0.5rem 2.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
-h1 {
+h2.form-title {
   text-align: center;
   color: #333;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
+
+.result-container {
+  min-height: 80px; /* この高さでレイアウトのズレを防ぎます */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.final-answer-wrapper {
+  width: 100%;
+}
+
 .calculator-form {
   display: flex;
   flex-direction: column;
@@ -204,14 +223,17 @@ hr {
   background-color: #e6f7ff;
   padding: 1rem;
   border-radius: 4px;
+  margin: 0;
 }
 .final-answer strong {
   font-size: 1.5rem;
 }
 .prompt {
-  margin-top: 2rem;
   text-align: center;
   color: #777;
+}
+.prompt p {
+  margin: 0;
 }
 .actual-formula {
   font-size: 0.9rem;
