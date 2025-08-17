@@ -1,15 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import MakingString from '../views/MakingString.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: {
-      HomeView,
-      MakingString,
-    }
+    component: HomeView
   },
   {
     path: '/about',
@@ -20,11 +16,6 @@ const routes = [
     path: '/making-string',
     name: 'making-string',
     component: () => import('../views/MakingString.vue')
-  },
-  {
-    path: '/making-string-2',
-    name: 'making-string-2',
-    component: () => import('../views/MakingString2.vue')
   }
 ]
 

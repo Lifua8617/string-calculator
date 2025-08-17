@@ -1,6 +1,6 @@
 <template>
   <div class="making-string-calculator">
-    <h2 class="form-title">生産サイクル計算式１</h2>
+    <h2 class="form-title">生産サイクル計算式</h2>
 
     <div class="calculator-form">
       <div class="form-group">
@@ -76,7 +76,7 @@
 
 <script>
 export default {
-  name: 'MakingString',
+  name: 'MakingString2',
   data() {
     return {
       rpm: null,
@@ -143,12 +143,15 @@ h2.form-title {
 }
 .form-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* 横並びに変更 */
+  align-items: center; /* 垂直方向中央揃え */
 }
 label {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0; /* 縦並び用のマージンをリセット */
   font-weight: bold;
   color: #555;
+  width: 180px; /* ラベルの幅を固定 */
+  flex-shrink: 0; /* ラベルが縮まないようにする */
 }
 input {
   padding: 0.75rem;
@@ -246,5 +249,24 @@ hr {
   background-color: #f0f0f0;
   padding: 2px 4px;
   border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .making-string-calculator {
+    padding: 1rem;
+  }
+
+  .form-group {
+    justify-content: space-between;
+  }
+
+  label {
+    width: 35%; /* ラベルの幅を相対的に */
+    font-size: 0.85rem; /* フォントサイズを調整 */
+  }
+
+  input {
+    width: 60%; /* 入力欄の幅を相対的に */
+  }
 }
 </style>

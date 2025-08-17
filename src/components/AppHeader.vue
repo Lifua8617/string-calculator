@@ -8,8 +8,7 @@
     <nav class="nav-links" :class="{ 'is-active': menuOpen }">
       <router-link to="/" @click="closeMenu">Home</router-link>
       <router-link to="/about" @click="closeMenu">About</router-link>
-      <router-link to="/making-string" @click="closeMenu">生産サイクル計算式１</router-link>
-      <router-link to="/making-string-2" @click="closeMenu">生産サイクル計算式２</router-link>
+      <router-link to="/making-string" @click="closeMenu">生産サイクル計算式</router-link>
     </nav>
   </header>
 </template>
