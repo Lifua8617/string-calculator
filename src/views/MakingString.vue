@@ -158,7 +158,7 @@ input {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 input::placeholder {
   color: #aaa;
@@ -222,7 +222,7 @@ hr {
   border-top: 1px solid #ddd;
 }
 .final-answer {
-  font-size: 1.2rem !important;
+  font-size: 1.5rem !important;
   font-weight: bold;
   text-align: center;
   background-color: #e6f7ff;
@@ -231,7 +231,7 @@ hr {
   margin: 0;
 }
 .final-answer strong {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 .prompt {
   text-align: center;
@@ -263,7 +263,7 @@ hr {
 
   label {
     width: 35%; /* ラベルの幅を相対的に */
-    font-size: 0.85rem; /* フォントサイズを調整 */
+    font-size: 1rem; /* フォントサイズを調整 */
   }
 
   input {
