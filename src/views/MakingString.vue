@@ -152,13 +152,13 @@ label {
   color: #555;
   width: 180px; /* ラベルの幅を固定 */
   flex-shrink: 0; /* ラベルが縮まないようにする */
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 input {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 input::placeholder {
   color: #aaa;
